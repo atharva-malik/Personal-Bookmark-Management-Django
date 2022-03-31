@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>Django Bookmarks | {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script type="text/javascript" src="firebug.js"></script>
+        <style type = "text/css">
+            input {
+                display: block;
+            }
+
+            #nav {
+                float: right;
+            }
+
+            ul.tags, ul.tags li{
+                display: inline;
+                margin: 0;
+                padding: 0;
+            }
+
+            #tag-cloud {
+                text-align: center;
+            }
+            #tag-cloud a {
+                margin: 0 0.2em;
+            }
+            .tag-cloud-0 { font-size: 100%; }
+            .tag-cloud-1 { font-size: 120%; }
+            .tag-cloud-2 { font-size: 140%; }
+            .tag-cloud-3 { font-size: 160%; }
+            .tag-cloud-4 { font-size: 180%; }
+            .tag-cloud-5 { font-size: 200%; }
+
+            ul.bookmarks .edit {
+                font-size: 70%;
+            }
+
+            .comment {
+                margin: 1em;
+                padding: 5px;
+                border: 1px solid #000;
+            }
+
+            #next {
+                float: right
+            }
+            #pagenum {
+                float: right
+            }
+        </style>
+        <script type="text/javascript" src="jquery.js"></script>
+        {% block external %}{% endblock %}
+    </head>
+    <body>
+        <div id="nav">
+            <a href="/">Home</a> |
+            <a href="/popular/">Popular</a> |
+            {% if user.is_authenticated %}
+                <a href="/save/">Add Bookmark</a> |
+                <a href="/search/">Search Bookmarks</a> |
+                <a href="/user/{{ user.username }}">{{ user.username }}</a> |
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login/">Login</a> |
+                <a href="/register/">Register</a>
+            {% endif %}
+        </div>
+        <h1>{% block head %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block external %}
+    <script type="text/javascript">
+        function search_submit() {
+            var query = $("#id_query").val();
+            $("#search-results").load(
+                "/search/?ajax&query=" + encodeURIComponent(query)
+            );
+            return false;
+        }
+        $(document).ready(function (){
+            $("#search-form").submit(search_submit);
+        })
+    </script>
+{% endblock %}
+{% block title %}Search Bookmarks{% endblock %}
+{% block head %}Search Bookmarks{% endblock %}
+{% block content %}
+<form id="search-form" method="get" action=".">
+    {{ form.as_p }}
+    <input type="submit" value="Search" />
+</form>
+<div id="search-results">
+    {% if show_results %}
+        {% include 'bookmark_list.html' %}
+    {% endif %}
+</div>
+{% endblock %}
