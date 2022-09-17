@@ -19,7 +19,6 @@ Django Bookmarks uses 2 main technologies, [Python 2] and Django 0.95 (included)
 
 ## Installation
 
-Dillinger requires [Python 2] v2.7.18 to run.
 Install the repository and you are good to go!
 
 To start the devolpment server on 127.0.0.1:8000 __or__ localhost:8000 (for Chrome), run the flowing commands
