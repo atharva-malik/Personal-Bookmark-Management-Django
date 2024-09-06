@@ -1,4 +1,3 @@
-# Personal-Bookmark-Management-Django
 # Django Bookmarks
 
 
